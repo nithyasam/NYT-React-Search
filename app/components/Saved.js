@@ -18,18 +18,12 @@ export default class Saved extends React.Component {
 	}
 
 	componentDidMount() {
-    // Get the latest history.
-	    console.log("Inside component mount");
-	    helpers.getArticles().then(function(response) {
-	      console.log(response.data);
-	      if (response.data !== this.state.articles) {
-	        console.log("Articles", response.data);
-	        this.setState({ articles: response.data, results: true });
-	        console.log("Articles after get:" + JSON.stringify(this.state.articles[0]));
-	      }
-	      
-	    }.bind(this));
-	  }
+		helpers.getArticles().then(function(response) {
+			if (response.data !== this.state.articles) {
+				this.setState({ articles: response.data, results: true });
+			}
+		}.bind(this));
+	}
 
 	render(){
 		let resultPanel;
@@ -44,7 +38,7 @@ export default class Saved extends React.Component {
 			<h3 className="panel-title"><strong><i className="fa fa-table"></i>   Saved Articles</strong></h3>
 			</div>
 			<div className="panel-body" id="well-section">
-				{resultPanel}
+			{resultPanel}
 			</div>
 			</div>
 			</div>

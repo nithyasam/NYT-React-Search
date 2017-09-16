@@ -9,11 +9,11 @@ export default class Result extends React.Component {
 		this.state = {
 			articles: this.props.articles
 		};
+
 		this.handleClick = this.handleClick.bind(this);
 		this.addSaveButton = this.addSaveButton.bind(this);
-
-
 	}
+
 	handleClick(article, index, func){
 		let newArticles = this.state.articles;
 		newArticles.splice(index, 1);
@@ -22,6 +22,7 @@ export default class Result extends React.Component {
 			console.log("Updated!");
 		}.bind(this));
 	}
+	
 	addSaveButton(article, visibility, index){
 
 		if(visibility){
@@ -39,7 +40,6 @@ export default class Result extends React.Component {
 	render(){
 		const articles = this.state.articles;
 		const showSave = this.props.showSave;
-
 		
 		const listItems = articles.map((article, i) => 
 			<p>
