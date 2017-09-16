@@ -45,7 +45,7 @@ export default class Result extends React.Component {
 			<p>
 			<h2>{article.title}</h2>
 			<h3>{article.date}</h3>
-			<h4>{article.date}</h4>
+			<h4>{article.url}</h4>
 			{this.addSaveButton(article, showSave, i)}
 			</p>
 			);
