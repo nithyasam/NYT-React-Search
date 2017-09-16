@@ -13,7 +13,7 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost/nytreact");
+mongoose.connect("mongodb://heroku_8nzmln6f:g99kl06afcol51o3qivs84dg40@ds139844.mlab.com:39844/heroku_8nzmln6f");
 const db = mongoose.connection;
 
 db.on("error", function(err) {
