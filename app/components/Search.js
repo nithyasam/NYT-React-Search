@@ -18,6 +18,7 @@ export default class Search extends React.Component {
 
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.clearResults = this.clearResults.bind(this);
 	}
 
 	handleChange(event) {
@@ -28,6 +29,7 @@ export default class Search extends React.Component {
 
 	handleSubmit(event) {
 		event.preventDefault();
+		this.setState({ results:false });
 		this.component_Update();
 		this.setState({ term: "",
 			rec_number: 5,
@@ -35,7 +37,14 @@ export default class Search extends React.Component {
 			end_year: "", 
 		});
 	}
-	
+	clearResults(){
+		this.setState({ term: "",
+			rec_number: 5,
+			start_year: "",
+			end_year: "", 
+			results:false,
+		});
+	}
 	component_Update() {
 		helpers.runQuery(this.state.term, this.state.start_year, 
 			this.state.end_year, this.state.rec_number).then(function(data) {
@@ -89,7 +98,7 @@ export default class Search extends React.Component {
 				<input type="text" className="form-control" id="end_year" value={this.state.end_year} onChange={this.handleChange}/>
 				</div>
 				<button type="submit" className="btn btn-default" id="run-search"><i className="fa fa-search"></i> Search</button>
-				<button type="button" className="btn btn-default" id="clear-all"><i className="fa fa-trash"></i> Clear Results</button>
+				<button type="button" className="btn btn-default" id="clear-all" onClick={this.clearResults}><i className="fa fa-trash"></i> Clear Results</button>
 				</form>
 				</div>
 				</div>
