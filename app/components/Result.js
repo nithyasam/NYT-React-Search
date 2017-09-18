@@ -27,12 +27,12 @@ export default class Result extends React.Component {
 
 		if(visibility){
 		return(
-			<button onClick={() => this.handleClick(article, index,helpers.postArticle)}>Save</button>
+			<button className="btn btn-success" onClick={() => this.handleClick(article, index,helpers.postArticle)}>Save</button>
 			);
 		}
 		else {
 			return(
-			<button onClick={() => this.handleClick(article, index, helpers.deleteArticle)}>Delete</button>
+			<button className="btn btn-danger" onClick={() => this.handleClick(article, index, helpers.deleteArticle)}>Delete</button>
 			);
 		}
 	}
@@ -42,7 +42,7 @@ export default class Result extends React.Component {
 		const showSave = this.props.showSave;
 		
 		const listItems = articles.map((article, i) => 
-			<p>
+			<p className="well">
 			<h2>{article.title}</h2>
 			<h3>{article.date}</h3>
 			<h4>{article.url}</h4>
